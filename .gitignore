@@ -1,0 +1,12 @@
+.build/
+result
+.direnv/
+.session
+.env
+
+# Advent of Code asks that puzzle inputs not be redistributed.
+# Remove this line if the repo stays private.
+day*/in/input*.txt
+
+# Reference solutions, kept out of sight on purpose.
+solutions/
