@@ -82,7 +82,7 @@ fn part2(orig_lines) -> i64 {
                 buf[y * w + x] = '%';
             }
         }
-        buf.map(){ if it == '%' {'%'} else {it} };
+        //buf.map(){ if it == '%' {'%'} else {it} };
         for i in 0..buf.len {
             if buf[i] == '%' {
                 buf[i] = '.';
