@@ -22,8 +22,8 @@ fn buf_at(buf: u8[:], x: i64, y: i64, w: i64, h: i64) -> bool {
 
 fn count_neighbors(lines: const u8[:][:], x: i64, y: i64) -> i64 {
     var count: i64 = 0;
-    for dy in [-1,0,1] {
-        for dx in [-1,0,1] {
+    for dy in -1..2 {
+        for dx in -1..2 {
             if dx == 0 && dy == 0 {continue;}
             if map_at(lines, x + dx, y + dy) {
                 count++;
@@ -35,8 +35,8 @@ fn count_neighbors(lines: const u8[:][:], x: i64, y: i64) -> i64 {
 
 fn count_neighbors(buf: const u8[:], x: i64, y: i64, w: i64, h: i64) -> i64 {
     var count: i64 = 0;
-    for dy in [-1,0,1] {
-        for dx in [-1,0,1] {
+    for dy in -1..2 {
+        for dx in -1..2 {
             if dx == 0 && dy == 0 {continue;}
             if buf_at(buf, x + dx, y + dy, w, h) {
                 count++;
