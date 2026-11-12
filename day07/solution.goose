@@ -32,7 +32,26 @@ fn part1(lines) -> i64 {
 }
 
 fn part2(lines) -> i64 {
-    0
+    var beams = lines[0].map(){if it == 'S' {1} else {0}};
+    //print("beams: ", beams);
+    for line in lines[1..] {
+        //print("beam count: ", beams.count(){it});
+        // Get splitters
+        let splitters = line.map(){it == '^'};
+        //print("beams and splitters:\n", beams, "\n", splitters);
+        for v, i in beams {
+            let s = splitters[i];
+            if v == 0 {continue;} //no beam; do nothing
+            // If there is a splitter; create 2 new beams (if not out of bounds)
+            if s {
+                beams[i] = 0;
+                if i > 0 {beams[i-1]+=v;}
+                if i < beams.len-1 {beams[i+1]+=v;}
+            }
+        }
+    }
+    //print("beams: ", beams);
+    beams.fold(0){acc, v => acc + v}
 }
 
 fn main() {
